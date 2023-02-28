@@ -49,7 +49,26 @@ public class Television {
         this.volume = volume;
     }
 
+
+    //Generation of equals and hashcode
+   /* @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+
+        //If obj is null or I and obj are not the same type
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        Television that = (Television) obj;
+        return this.getVolume() == that.getVolume() &&
+                Objects.equals(getBrand(), that.getBrand());
+    }
+
     @Override
+    public int hashCode() {
+        return Objects.hash(getBrand(), getVolume());
+    }*/
+
+        @Override
     public int hashCode() {
         //This is a poorly written hash function because it results in hash collisions.
         // A hash collision is when different objects (equals()) have the same hash code.
@@ -63,7 +82,7 @@ public class Television {
         boolean result = false;
 
         //proceed only if obj is a reference to Television object
-        if (obj instanceof Television) {
+        if ( obj != null && this.getClass() == obj.getClass()) { //ok to use == for Class objects
             Television other = (Television) obj; // downcast to more specific type to call Television methods
             //Do the checks
             result = Objects.equals(this.getBrand(), other.getBrand()) && //null safe objects
