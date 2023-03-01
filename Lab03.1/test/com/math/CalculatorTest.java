@@ -10,25 +10,53 @@ package com.math;
 
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import org.junit.*;
 
 public class CalculatorTest {
 
+    //objects under test - called a "fixture" in JUnit
+    private Calculator calc;
+
+    @BeforeClass //expensive!!!
+    public static void initializeEntireTestRun() {
+        System.out.println("initializeEntireTestRun");
+    }
+
+    @AfterClass
+    public static void finalizeTestRun() {
+        System.out.println("finalizeTestRun");
+    }
+
+    @Before //to eliminate redundancy CALLED A FIXTURE
+    /*
+    * BEFORE AND AFTER METHODS BRACKET TEST METHODS
+    * */
+    public void setUp() {
+        System.out.println("setup");
+        calc = new Calculator();
+    }
+
+    //Close and cleanup -------less common than @before
+    @After
+    public void tearDown() {
+        System.out.println("tearDown");
+    }
+
     @Test
     public void testAdd() {
-        Calculator calc = new Calculator();
+        System.out.println("testAdd");
         assertEquals(5, calc.add(1, 4));  // expected, actual
     }
 
     @Test
     public void testDivide() {
-        Calculator calc = new Calculator();
+        System.out.println("testDivide");
         assertEquals(2.5, calc.divide(5, 2), .001);
     }
 
     @Test
     public void testIsEven(){
-        Calculator calc = new Calculator();
+        System.out.println("testIsEven");
         assertTrue(calc.isEven(14));
     }
 }
