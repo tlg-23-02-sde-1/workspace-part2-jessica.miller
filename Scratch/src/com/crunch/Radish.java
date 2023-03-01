@@ -10,8 +10,13 @@ class Radish implements Comparable<Radish> {
     private double tailLength;
     private int sprouts;
 
-    public Radish(String color, double size, double tailLength, int sprouts) {
+    public Radish(String color) {
         setColor(color);
+
+    }
+
+    public Radish(String color, double size, double tailLength, int sprouts) {
+        this(color);
         setSize(size);
         setTailLength(tailLength);
         setSprouts(sprouts);
