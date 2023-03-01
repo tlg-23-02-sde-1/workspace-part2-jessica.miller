@@ -2,6 +2,7 @@ package com.entertainment;
 
 import java.util.Comparator;
 
+//Needed for a TreeSet implementation. Obligated to break the tie...
 public class TelevisionBrandChannelComparator implements Comparator<Television> {
     @Override
     public int compare(Television t1, Television t2) {

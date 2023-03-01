@@ -91,10 +91,20 @@ public class Television implements Comparable<Television> {
         return result;
     }
 
-    //Comparable
+//    //Comparable
+//    @Override
+//    public int compareTo(Television other) {
+//        return this.getBrand().compareTo(other.getBrand());
+//    }
+
     @Override
     public int compareTo(Television other) {
-        return this.getBrand().compareTo(other.getBrand());
+            int result = this.getBrand().compareTo(other.getBrand());
+
+            if (result == 0) {
+                result = Integer.compare(this.getVolume(), other.getVolume());
+            }
+            return result;
     }
 
     @Override //toString

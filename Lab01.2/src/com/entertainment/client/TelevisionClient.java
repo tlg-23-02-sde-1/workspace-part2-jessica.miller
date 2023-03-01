@@ -2,19 +2,18 @@ package com.entertainment.client;
 
 import com.entertainment.Television;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
+//To be consistent with equals, our sort keys must align with what was chosen
+//for equals() and hashcode()
 class TelevisionClient {
 
     public static void main(String[] args) {
 
         Television tv3 = new Television("Sony", 50);
         Television tv4 = new Television("Sony", 50);
-        Television tv5 = new Television("Samsung", 47);
-        Television tv6 = new Television("LG", 52);
+        Television tv5 = new Television("Sony", 52);
+        Television tv6 = new Television("Sony", 12);
 
         //COMPARE BOTH TVS
         System.out.println("tv3 == tv4: " + (tv3 == tv4));  //always false
