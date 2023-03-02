@@ -8,8 +8,7 @@
  */
 package com.javatunes.product;
 
-public class MediaPlayer
-extends Product {
+public class MediaPlayer extends Product {
   
   public MediaPlayer(String code) {
     super(code);

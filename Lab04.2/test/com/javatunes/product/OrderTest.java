@@ -36,10 +36,22 @@ public class OrderTest {
    *  For example, create three Order objects: "order-1", "order-2", "order-3."
    *  order-1 is for the contents of productCart,
    *  order-2 is for the contents of musicCart,
-   *  order-3 is for the contents of meduaCart.
+   *  order-3 is for the contents of mediaCart.
    */
   @Test
   public void testProcessCart() {
-    
+    Order order1 = new Order("order-1");
+    order1.processCart(productCart); //first cart pass in
+    System.out.println();
+    Order order2 = new Order("order-2");
+    order2.processCart(musicCart); //passing ShoppingCart<product> needs ? extends
+    System.out.println();
+    Order order3 = new Order("order-3");
+    order3.processCart(mediaCart); //Passing shoppingCart<mediaPlayer> is a subclass of product
+    System.out.println();
+
+
+
+
   }
 }
