@@ -18,7 +18,6 @@ public class Order {
     }
 
     /**
-     * TODO:
      * get the items from the cart and iterate over them, print each item's product code
      * get cart total and print
      */
