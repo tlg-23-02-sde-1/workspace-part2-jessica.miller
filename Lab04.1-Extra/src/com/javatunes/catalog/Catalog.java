@@ -29,7 +29,7 @@ public interface Catalog {
     public Collection<MusicItem> findByKeyword(String keyword);
 
     /**
-     * Returns a collection of items that are of the supplied genre (category).
+     * Returns a collection of items tha't are of the supplied genre (category).
      */
     public Collection<MusicItem> findByCategory(MusicCategory category);
 

@@ -116,20 +116,31 @@ public class InMemoryCatalog implements Catalog {
      */
 
     /**
-     * todo TASK: find all MusicItems where title is same as artist.
+     * TASK: find all MusicItems where title is same as artist.
      * For example, Madonna's first album is simply titled, "Madonna."
      */
-//        public Collection<MusicItem> findSelfTitled () { //don't need arguments
-//            Collection<MusicItem> result = new ArrayList<>();
-//        }
+        public Collection<MusicItem> findSelfTitled () { //don't need arguments
+            Collection<MusicItem> result = new ArrayList<>();
+            for(MusicItem item: catalogData) {
+                if(item.getTitle().equals(item.getArtist())) {
+                    result.add(item);
+                }
+            }
+            return result;
+        }
 
 
     /**
-     * todo TASK: find all "rock" items whose price is less than or equal to the specified price.
+     * TASK: find all "rock" items whose price is less than or equal to the specified price.
      */
         public Collection<MusicItem> findRockBottom(double maxPrice) {
             Collection<MusicItem> result = new ArrayList<>();
-
+            for(MusicItem item: catalogData) {
+                if(item.getPrice() <= maxPrice &&
+                item.getMusicCategory().equals(MusicCategory.ROCK)) {
+                    result.add(item);
+                }
+            }
             return result;
         }
 
