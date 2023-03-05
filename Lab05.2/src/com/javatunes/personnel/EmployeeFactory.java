@@ -32,15 +32,14 @@ public class EmployeeFactory {
       throw new IllegalArgumentException("Invalid type: " + type);
     }
 
+    String name   = inputMap.get("name");
+    Date hireDate = Date.valueOf(inputMap.get("hireDate"));
+    //At this point we know we have SE or HE
     if ("SE".equals(type)) {
-      String name   = inputMap.get("name");
-      Date hireDate = Date.valueOf(inputMap.get("hireDate"));
       Double salary = Double.valueOf(inputMap.get("salary"));
       emp = new SalariedEmployee(name, hireDate, salary);
     }
     else {
-      String name   = inputMap.get("name");
-      Date hireDate = Date.valueOf(inputMap.get("hireDate"));
       Double rate = Double.valueOf(inputMap.get("rate"));
       Double hours = Double.valueOf(inputMap.get("hours"));
       emp = new HourlyEmployee(name, hireDate, rate, hours);
