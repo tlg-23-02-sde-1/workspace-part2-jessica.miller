@@ -9,14 +9,14 @@
 package com.javatunes.corp.client;
 
 import com.javatunes.corp.Corporation;
-import gov.irs.IRS;
+import gov.irs.IRS; //import
 
 class TaxClient {
 
     public static void main(String[] args) {
-        // get the IRS instance
+        // get the IRS instance from the only sole point of exsistence in irs interface
 
-         IRS irs = IRS.getInstance();
+         IRS irs = IRS.getInstance(); //doesnt look like an enum
 
         // uncomment this block after completing the above
         // create the Corporation and register it with the IRS

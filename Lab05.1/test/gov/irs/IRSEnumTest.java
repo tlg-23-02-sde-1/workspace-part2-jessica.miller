@@ -5,7 +5,7 @@
 // * We hope that it's useful to you.  Enjoy.
 // * Copyright LearningPatterns Inc.
 // */
-//
+
 //package gov.irs;
 //
 //import com.javatunes.corp.Corporation;
@@ -28,10 +28,11 @@
 //     */
 //    @Test
 //    public void getInstance_shouldReturnSameInstance_everyTime() {
+//        //both objects reference the same object
 //        IRSEnum irs1 = IRSEnum.INSTANCE;
 //        IRSEnum irs2 = IRSEnum.INSTANCE;
-//        assertTrue(irs1 == irs2);
-//        assertSame(irs1, irs2);
+//        assertTrue(irs1 == irs2); //Jshell tutorial age1 and age2
+//        assertSame(irs1, irs2); //uses reference checks
 //    }
 //
 //    /*
