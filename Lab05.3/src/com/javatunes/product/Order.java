@@ -26,10 +26,7 @@ public class Order {
 
   //--------OPTION 1 LAB MANUAL PAGE 158
   public double getTax() { //THis method just delegates to other methods
-    double result = 0.0;
-    //coding by intention. If you had a tax calc factory,
-    // you would call a static method on tax calc and get a tax calc back.
-    //fetch the appropiate tax calculator based on location
+
     TaxCalculator calc = TaxCalculatorFactory.getTaxCalculator(getLocation());
     //delegate to the returned tax calculator to get the tax
     return calc.taxAmount(getCartTotal());
@@ -47,7 +44,8 @@ public class Order {
     for (Product product : cartItems) {
       System.out.println(product.getCode());
     }
-    System.out.println("Order Total: " + cart.total());
+    this.cartTotal = cart.total(); //Get total from cart and assign to field at the top
+    System.out.println("Order Total: " + getCartTotal());
   }
   
   public String getId() {
