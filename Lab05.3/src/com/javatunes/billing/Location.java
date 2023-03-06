@@ -9,5 +9,7 @@
 package com.javatunes.billing;
 
 public enum Location {
-  USA, EUROPE, ONLINE
+  USA,
+  EUROPE,
+  ONLINE
 }

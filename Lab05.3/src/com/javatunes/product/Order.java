@@ -8,13 +8,31 @@
  */
 package com.javatunes.product;
 
+import com.javatunes.billing.Location;
+import com.javatunes.billing.TaxCalculator;
+import com.javatunes.billing.TaxCalculatorFactory;
+
 import java.util.Collection;
 
 public class Order {
-  private String id;
+  private final String id;
+  private double cartTotal;
+  private final Location location;
   
-  public Order(String id) {
+  public Order(String id, Location location) {
     this.id = id;
+    this.location = location;
+  }
+
+  //--------OPTION 1 LAB MANUAL PAGE 158
+  public double getTax() { //THis method just delegates to other methods
+    double result = 0.0;
+    //coding by intention. If you had a tax calc factory,
+    // you would call a static method on tax calc and get a tax calc back.
+    //fetch the appropiate tax calculator based on location
+    TaxCalculator calc = TaxCalculatorFactory.getTaxCalculator(getLocation());
+    //delegate to the returned tax calculator to get the tax
+    return calc.taxAmount(getCartTotal());
   }
   
   /**
@@ -34,5 +52,13 @@ public class Order {
   
   public String getId() {
     return id;
+  }
+
+  public Location getLocation() {
+    return location;
+  }
+
+  public double getCartTotal() {
+    return cartTotal;
   }
 }
