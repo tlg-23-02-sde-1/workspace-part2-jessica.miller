@@ -11,7 +11,7 @@ package com.javatunes.product;
 import java.util.Collection;
 
 public class Order {
-    private String id;
+    private final String id;
 
     public Order(String id) {
         this.id = id;

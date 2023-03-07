@@ -14,7 +14,7 @@ import java.util.Collections;
 
 public class ShoppingCart<T extends Product> {
   // storage for the cart's contents
-  private Collection<T> items = new ArrayList<T>();  // diamond not used here just to emphasize the T
+  private final Collection<T> items = new ArrayList<T>();  // diamond not used here just to emphasize the T
 
 
   public double total() {
