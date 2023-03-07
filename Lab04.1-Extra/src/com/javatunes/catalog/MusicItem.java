@@ -18,7 +18,7 @@ import java.sql.Date;
  */
 public class MusicItem
 implements Comparable<MusicItem> {
-    private Long id;
+    private final Long id;
     private String title;
     private String artist;
     private Date releaseDate;

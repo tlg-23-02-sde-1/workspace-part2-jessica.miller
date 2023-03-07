@@ -15,7 +15,7 @@ public interface Catalog {
     /**
      * Returns the item with the given id, or null if not found.
      */
-    public MusicItem findById(Long id);
+    MusicItem findById(Long id);
 
     /**
      * Returns a collection of items that match the supplied keyword.
@@ -26,21 +26,21 @@ public interface Catalog {
      *
      * A no-matches result should return an empty collection (not null).
      */
-    public Collection<MusicItem> findByKeyword(String keyword);
+    Collection<MusicItem> findByKeyword(String keyword);
 
     /**
      * Returns a collection of items tha't are of the supplied genre (category).
      */
-    public Collection<MusicItem> findByCategory(MusicCategory category);
+    Collection<MusicItem> findByCategory(MusicCategory category);
 
     /**
      * Size of the catalog.
      */
-    public int size();
+    int size();
 
     /**
      * Read-only view of the entire catalog.
      * See java.util.Collections class (an all-static utility class) for help here.
      */
-    public Collection<MusicItem> getAll();
+    Collection<MusicItem> getAll();
 }
