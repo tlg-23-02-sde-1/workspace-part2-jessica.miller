@@ -8,6 +8,7 @@
  */
 package com.entertainment.catalog;
 
+import java.net.CookieHandler;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -28,7 +29,14 @@ public class Catalog {
    * A no-matches result should be an empty collection (not null).
    */
   public static Collection<Television> findByBrand(String brand) {
-    return null;
+    Collection<Television> result = new ArrayList<>();
+    //iterate over catalog looking for matching brands
+      for (Television tv : catalog) {
+          if (tv.getBrand().equals(brand)) {
+              result.add(tv);
+        }
+    }
+    return result;
   }
   
   /**
@@ -37,7 +45,12 @@ public class Catalog {
    * A no-brands-passed result should be an empty map (not null).
    */
   public static Map<String,Collection<Television>> findByBrands(String... brands) {
-    return null;
+    Map<String,Collection<Television>> result = new HashMap<>();
+    //todo: --------
+//    for () {
+//
+//    }
+    return result;
   }
 
   /**
@@ -52,7 +65,7 @@ public class Catalog {
    *  This is an all-static utility class, not the java.util.Collection interface.
    */
   public static Collection<Television> getInventory() {
-    return catalog;
+    return Collections.unmodifiableCollection(catalog);
   }
 
   /*
