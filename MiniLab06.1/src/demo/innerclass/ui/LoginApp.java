@@ -18,14 +18,13 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-public class LoginApp
-extends JFrame {
-  private JLabel nameLabel = new JLabel("Username: ");
-  private JLabel passwordLabel = new JLabel("Password: ");
-  private JTextField nameField = new JTextField(12);
-  private JTextField passwordField = new JPasswordField(12);
-  private JButton loginButton = new JButton("OK");
-  private JLabel messageLabel = new JLabel();
+public class LoginApp extends JFrame {
+  private final JLabel nameLabel = new JLabel("Username: ");
+  private final JLabel passwordLabel = new JLabel("Password: ");
+  private final JTextField nameField = new JTextField(12);
+  private final JTextField passwordField = new JPasswordField(12);
+  private final JButton loginButton = new JButton("OK");
+  private final JLabel messageLabel = new JLabel();
   
   public LoginApp() {
     super("Please Log In");

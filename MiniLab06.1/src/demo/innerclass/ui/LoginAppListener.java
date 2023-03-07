@@ -15,9 +15,9 @@ import javax.swing.JTextField;
 
 public class LoginAppListener
 implements ActionListener {
-  private JTextField nameField;
-  private JTextField passwordField;
-  private JLabel messageLabel;
+  private final JTextField nameField;
+  private final JTextField passwordField;
+  private final JLabel messageLabel;
   
   public LoginAppListener(JTextField nameField, JTextField passwordField, JLabel messageLabel) {
 	  this.nameField = nameField;
