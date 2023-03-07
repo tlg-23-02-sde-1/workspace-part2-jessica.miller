@@ -16,7 +16,7 @@ import java.util.Collection;
  */
 public class IRS {
   // what types of objects can this collection contain?
-  private Collection<TaxPayer> payers = new ArrayList<>();
+  private final Collection<TaxPayer> payers = new ArrayList<>();
   
   // what methods are available on each 'payer' reference?
   public void collectTaxes() {
