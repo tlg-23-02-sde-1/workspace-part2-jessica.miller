@@ -13,9 +13,20 @@ public class EmployeeTest {
 
     @Before
     public void setUp() {
-        emp1 = new SalariedEmployee("Jack", Date.valueOf("2020-10-10"));
-        emp2 = new SalariedEmployee("Jack", Date.valueOf("2020-10-10"));
+        //emp1 = new DummyEmployee("Jack", Date.valueOf("2020-10-10"));
+        //emp2 = new DummyEmployee("Jack", Date.valueOf("2020-10-10"));
+
+        //ANONYMOUS SUBCLASS
+        emp1 = getEmployee();
+        emp2 = getEmployee();
+        }
+
+    private Employee getEmployee() {
+        return new Employee("Jack", Date.valueOf("2020-10-10")) {//USES SAME CONSTRUCTOR
+            public double pay() {return 0;}
+            public double payTaxes() {return 0;}};
     }
+
 
     @Test
     public void hashCode_shouldBeEqual_whenEqualObjects() {
@@ -43,4 +54,13 @@ public class EmployeeTest {
         assertEquals(emp1, emp2);
         assertTrue(emp1.equals(emp2));
     }
+
+    //NAMED MEMBER LEVEL INNER CLASSES (return 0)
+    private class DummyEmployee extends Employee {
+        public DummyEmployee(String name, Date hireDate) {
+            super(name, hireDate);}
+        public double pay() { return 0; }
+        public double payTaxes() { return 0; }
+    }
+
 }
