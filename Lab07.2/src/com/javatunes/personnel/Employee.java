@@ -8,9 +8,14 @@
  */
 package com.javatunes.personnel;
 
+import com.fastjava.annotation.Fast;
+
+import java.util.Locale;
+
 /**
  * TODO: all methods in this class should run 25% faster.
  */
+@Fast(boost = .25, isPerformanceData = false, descripton = "")
 public class Employee {
   
   /**
@@ -18,10 +23,12 @@ public class Employee {
    * OSHA regulations require extra logging about the performance improvement,
    * as well as a description of why we're using this technology from FastJava.com.
    */
+
+  @Fast(boost = .50, isPerformanceData = true, descripton = "Jessica")
   public void work() {
     System.out.println("Employee working hard");
   }
-  
+
   public void pay() {
     System.out.println("Employee paid well");
   }
