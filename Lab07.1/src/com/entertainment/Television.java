@@ -8,6 +8,8 @@
  */
 package com.entertainment;
 
+import jdk.jfr.Timespan;
+
 import java.util.Objects;
 
 public class Television
@@ -39,7 +41,7 @@ implements Comparable<Television> {
     this(brand);
     setDisplay(display);
   }
-  
+
   public Television(String brand, int volume, DisplayType display)
   throws IllegalArgumentException {
     this(brand, volume);
@@ -61,7 +63,7 @@ implements Comparable<Television> {
   private boolean connect() {
     boolean success = false;
     
-    int delay = 5000;
+    int delay = 2000;
     int spin = 10;
     boolean running = true;
     while (running && !Thread.currentThread().isInterrupted()) {
