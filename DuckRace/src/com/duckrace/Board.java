@@ -38,7 +38,7 @@ import java.util.*;
  *   17       17    Dom        1    DEBIT_CARD
  */
 
-class Board {
+public class Board {
     private final Map<Integer,String> studentIdMap = loadStudentIdMap();
     private final Map<Integer,DuckRacer> racerMap  = new TreeMap<>();
 
@@ -65,13 +65,23 @@ class Board {
         //either way, it needs to win
     }
 
-    //Render data pretty.
+    //TODO Render data pretty.
     //This includes column headings, spacing (String.format("", )
     public void show() {
-        Collection<DuckRacer> allRacers = racerMap.values();
-        for (DuckRacer racer : allRacers) {
-            System.out.println(racer); //toString automatically called
+        if (racerMap.isEmpty()) {
+            System.out.println("There are currently no winners.");
+        } else {
+            System.out.println("-------Duck Race Results-------");
+            System.out.println("===============================");
+            System.out.println();
+            Collection<DuckRacer> allRacers = racerMap.values();
+            for (DuckRacer racer : allRacers) {
+                System.out.println(racer); //toString automatically called
+            }
         }
+
+
+
     }
 
     /*
