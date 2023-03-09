@@ -1,17 +1,18 @@
 package com.duckrace;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
-class DuckRacer {
+class DuckRacer implements Serializable {
     private final int id;
     private String name;
 //  private int wins;
     private final List<Reward> rewards = new ArrayList<>();
 
-    //constuctor
+    //constructor
     public DuckRacer(int id, String name) {
         this.id = id;
         setName(name);

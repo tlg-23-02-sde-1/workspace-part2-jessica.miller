@@ -10,7 +10,7 @@ import java.util.Scanner;
 * and coordinates all user prompting, taking those inputs and passing
 * them into the system*/
 public class DuckRaceApp {
-    private final Board board = new Board(); //reference to board
+    private final Board board = Board.getInstance(); //reference to board
     private final Scanner scanner = new Scanner(System.in); //reference to scanner
 
     //high level execute method (coding with intention)

@@ -1,6 +1,6 @@
 package com.duckrace;
 
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -38,16 +38,25 @@ import java.util.*;
  *   17       17    Dom        1    DEBIT_CARD
  */
 
-public class Board {
+public class Board implements Serializable {
+    //Static variables and methods
+    private static final String dataFilePath = "data/board.dat";
+    public static Board getInstance() { //If file data.board exsists, read that bianry file into a board object
+        Board board = null;
+        if (Files.exists(Path.of(dataFilePath))) {
+            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(dataFilePath))) {
+                board = (Board) in.readObject();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else {
+            board = new Board();
+        }
+        return board;
+    }
+
     private final Map<Integer,String> studentIdMap = loadStudentIdMap();
     private final Map<Integer,DuckRacer> racerMap  = new TreeMap<>();
-
-    /*
-    * Updates the board (racerMap) by making a DuckRacer win.
-    * This could mean fetching an existing DuckRacer from racerMap,
-    * or we might need to create a new DuckRacer, put it in the map,
-    * and then make it win
-    * */
 
     public void update(int id, Reward reward) {
         //Declare and dont initialize
@@ -59,9 +68,10 @@ public class Board {
         } else {
             racer = new DuckRacer(id, studentIdMap.get(id));
             racerMap.put(id, racer); //put it in the map
-            racer.win(reward);
-        }
 
+        }
+        racer.win(reward);
+        save();
         //either way, it needs to win
     }
 
@@ -71,9 +81,10 @@ public class Board {
         if (racerMap.isEmpty()) {
             System.out.println("There are currently no winners.");
         } else {
-            System.out.println("-------Duck Race Results-------");
-            System.out.println("===============================");
-            System.out.println();
+            StringBuilder board = new StringBuilder();
+            board.append("--------Duck Race Results--------");
+            board.append("=================================");
+            board.append("");
             Collection<DuckRacer> allRacers = racerMap.values();
             for (DuckRacer racer : allRacers) {
                 System.out.println(racer); //toString automatically called
@@ -91,6 +102,18 @@ public class Board {
     //Testing only
     void dumpStudentIdMap() {
         System.out.println(studentIdMap);
+    }
+
+    public int maxId () {
+        return studentIdMap.size();
+    }
+
+    private void save () {
+        try(ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(dataFilePath))) {
+            out.writeObject(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private Map<Integer, String> loadStudentIdMap() {
